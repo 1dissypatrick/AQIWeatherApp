@@ -77,9 +77,9 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
           children: [
             // Air quality icon
             Icon(
-              Icons.air, // You can choose a different icon
+              Icons.air,
               size: 24,
-              color: Colors.green, // Change color as needed
+              color: Colors.green,
             ),
             const SizedBox(width: 8), // Spacing between icon and text
             Text(
@@ -87,15 +87,15 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
               style: TextStyle(
                 fontSize: 24, // Increased font size
                 fontWeight: FontWeight.bold,
-                color: Colors.blueAccent, // Change color as needed
+                color: Colors.blueAccent,
               ),
             ),
             const SizedBox(width: 8), // Additional spacing
             // Additional decorative icon
             Icon(
-              Icons.cloud, // You can choose a different icon
+              Icons.cloud,
               size: 24,
-              color: Colors.blue, // Change color as needed
+              color: Colors.blue,
             ),
           ],
         ),
@@ -125,7 +125,7 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
 
               // Page subtitle
               const Text(
-                'Find the area or city that you want to know the detailed weather info at this time',
+                'Find the area or city that you want to know the detailed Air Quality info',
                 style: TextStyles.subtitleText,
                 textAlign: TextAlign.center,
               ),
@@ -162,6 +162,13 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                     color: AppColors.accentBlue,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        blurRadius: 10,
+                        offset: Offset(0, 5),
+                      ),
+                    ],
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -172,27 +179,38 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
                         children: [
                           Text(
                             '${_weather!.name}',
-                            style: TextStyles.h2,
+                            style: TextStyles.h2.copyWith(fontSize: 18),
                           ),
                           const SizedBox(height: 10),
                           Text(
                             '${_weather!.main.temp}°C',
-                            style: TextStyles.h2,
+                            style: TextStyles.h2.copyWith(fontSize: 18),
                           ),
                           const SizedBox(height: 10),
                           Text(
                             '${_weather!.weather[0].description}',
-                            style: TextStyles.h2,
+                            style: TextStyles.h2.copyWith(fontSize: 18),
                           ),
                           if (_airQuality != null) ...[
                             const SizedBox(height: 10),
                             Text(
                               'AQI: ${_airQuality!.aqi} ${getAQIEmoji(_airQuality!.aqi)}',
                               style: TextStyles.h2.copyWith(
+                                fontSize: 18,
                                 color: getAQIColor(_airQuality!.aqi),
                               ),
                             ),
                           ],
+                          const SizedBox(height: 10),
+                          Text(
+                            'Wind Speed: ${_weather!.wind.speed} m/s',
+                            style: TextStyles.h2.copyWith(fontSize: 18),
+                          ),
+                          const SizedBox(height: 10),
+                          Text(
+                            'Humidity: ${_weather!.main.humidity}%',
+                            style: TextStyles.h2.copyWith(fontSize: 18),
+                          ),
                         ],
                       ),
                       // Weather icon
