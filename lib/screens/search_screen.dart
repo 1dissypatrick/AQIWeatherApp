@@ -77,9 +77,9 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
           children: [
             // Air quality icon
             Icon(
-              Icons.air,
+              Icons.air, // You can choose a different icon
               size: 24,
-              color: Colors.green,
+              color: Colors.green, // Change color as needed
             ),
             const SizedBox(width: 8), // Spacing between icon and text
             Text(
@@ -87,15 +87,15 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
               style: TextStyle(
                 fontSize: 24, // Increased font size
                 fontWeight: FontWeight.bold,
-                color: Colors.blueAccent,
+                color: Colors.blueAccent, // Change color as needed
               ),
             ),
             const SizedBox(width: 8), // Additional spacing
             // Additional decorative icon
             Icon(
-              Icons.cloud,
+              Icons.cloud, // You can choose a different icon
               size: 24,
-              color: Colors.blue,
+              color: Colors.blue, // Change color as needed
             ),
           ],
         ),
@@ -125,7 +125,7 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
 
               // Page subtitle
               const Text(
-                'Find the area or city that you want to know the detailed Air Quality info',
+                'Find the area or city that you want to know the detailed Air Quality',
                 style: TextStyles.subtitleText,
                 textAlign: TextAlign.center,
               ),
@@ -162,13 +162,6 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                     color: AppColors.accentBlue,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        blurRadius: 10,
-                        offset: Offset(0, 5),
-                      ),
-                    ],
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -201,6 +194,7 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
                               ),
                             ),
                           ],
+                          // Display wind speed and humidity
                           const SizedBox(height: 10),
                           Text(
                             'Wind Speed: ${_weather!.wind.speed} m/s',
